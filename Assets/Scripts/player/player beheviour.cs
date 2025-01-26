@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] public GameObject playAgainButton;
 
     public GameObject playerCam;
-    public GameObject Player;
+    public GameObject player;
     //public GameObject Circle;
     public GameObject MMCam;
     public GameObject Purple;
