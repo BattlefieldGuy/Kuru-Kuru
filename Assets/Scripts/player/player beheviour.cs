@@ -3,14 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] public GameObject playAgainButton;
-
     public GameObject playerCam;
     public GameObject player;
-    //public GameObject Circle;
     public GameObject MMCam;
-    public GameObject Purple;
-    public GameObject Green;
+    //public GameObject Purple;
+    //public GameObject Green;
 
     private Rigidbody2D m_Rigidbody;
 
@@ -63,13 +60,13 @@ public class Player : MonoBehaviour
         }
         if (isGreen == false)
         {
-            Purple.SetActive(true);
-            Green.SetActive(false);
+            //Purple.SetActive(true);
+            //Green.SetActive(false);
         }
         if (isGreen == true)
         {
-            Purple.SetActive(false);
-            Green.SetActive(true);
+            //Purple.SetActive(false);
+            //Green.SetActive(true);
         }
 
     }
@@ -97,12 +94,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wal"))
         {
             if (spawnState == 0 || spawnState == 4)
             {
                 transform.position = Vector2.zero;
-                Debug.Log("Hit something, back to begining");
             }
             if (spawnState == 1)
             {
@@ -129,8 +125,7 @@ public class Player : MonoBehaviour
                 transform.position = new Vector2(65.13f, -95.92f);
             }
             m_Rigidbody.velocity = Vector3.zero;
-            playAgainButton.SetActive(true);
-            Time.timeScale = 0f;
+
 
         }
     }
@@ -258,14 +253,4 @@ public class Player : MonoBehaviour
             m_Rigidbody.AddForce(-other.transform.up * 15);
         }
     }
-
-    //public void Training()
-    //{
-    //    SceneManager.LoadScene("Training");
-    //}
-
-    //public void Chapter1()
-    //{
-    //    SceneManager.LoadScene("Chapter 1");
-    //}
 }
