@@ -10,8 +10,11 @@ public class PlayerRespawnManager : MonoBehaviour
 
     private Rigidbody2D playerRB;
 
+    private PlayerBehaviour player;
+
     void Start()
     {
+        player = FindFirstObjectByType<PlayerBehaviour>();
         src = this.GetComponent<AudioSource>();
         playerRB = this.GetComponent<Rigidbody2D>();
     }
@@ -20,18 +23,23 @@ public class PlayerRespawnManager : MonoBehaviour
         this.gameObject.transform.position = respawnPoint;
         src.PlayOneShot(RespawnClip);
         StartCoroutine(ResetAfter());
-        Time.timeScale = 1f;
     }
 
     private IEnumerator ResetAfter()
     {
         yield return new WaitForSeconds(1f);
         playerRB.velocity = Vector3.zero;
+        player.movement = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("RespawnPoint"))
+        Debug.Log("hit something");
+        if (other.gameObject.CompareTag("RespawnPoint"))
+        {
+
             respawnPoint = other.transform.position;
+            Debug.Log("point set");
+        }
     }
 }

@@ -56,11 +56,4 @@ public class Utilities : MonoBehaviour
     {
         SceneManager.LoadScene("Info");
     }
-
-    public void PlayAgain()
-    {
-        Time.timeScale = 1f;
-        playAgainButton.SetActive(false);
-        m_Rigidbody.velocity = Vector3.zero;
-    }
 }

@@ -7,14 +7,14 @@ public class PlayerHit : MonoBehaviour
 
     [SerializeField] private GameObject respawnButton;
 
-    private PlayerRespawnManager respawnManager;
+    private PlayerBehaviour player;
 
     private Rigidbody2D playerRB;
 
     private void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
-        respawnManager = this.GetComponent<PlayerRespawnManager>();
+        player = FindFirstObjectByType<PlayerBehaviour>();
         if (respawnButton == null)
             Debug.LogError("Respawn button not setup");
         if (src == null)
@@ -26,7 +26,7 @@ public class PlayerHit : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Time.timeScale = 0f;
+            player.movement = false;
             playerRB.velocity = Vector3.zero;
             respawnButton.SetActive(true);
             if (src != null)
