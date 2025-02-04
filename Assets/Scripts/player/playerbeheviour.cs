@@ -121,38 +121,4 @@ public class PlayerBehaviour : MonoBehaviour
             isGreen = false;
         }
     }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("pushG"))
-        {
-            Debug.Log("push");
-            m_Rigidbody.AddForce(other.transform.up * 5);
-        }
-        if (other.gameObject.CompareTag("pushB"))
-        {
-            Debug.Log("PUSH");
-            m_Rigidbody.AddForce(other.transform.up * 10);
-        }
-        if (other.gameObject.CompareTag("pushR"))
-        {
-            Debug.Log("PUSH!!!!");
-            m_Rigidbody.AddForce(other.transform.up * 15);
-        }
-        if (other.gameObject.CompareTag("pullG"))
-        {
-            Debug.Log("pull");
-            m_Rigidbody.AddForce(-other.transform.up * 5);
-        }
-        if (other.gameObject.CompareTag("pullB"))
-        {
-            Debug.Log("PULL");
-            m_Rigidbody.AddForce(-other.transform.up * 10);
-        }
-        if (other.gameObject.CompareTag("pullR"))
-        {
-            Debug.Log("PULL!!!!");
-            m_Rigidbody.AddForce(-other.transform.up * 15);
-        }
-    }
 }
