@@ -21,8 +21,9 @@ public class ObstaclePP : MonoBehaviour
             player = GetComponent<Rigidbody2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
+        Debug.Log("stay");
         if (other.gameObject.CompareTag("pushG"))
         {
             player.AddForce(other.transform.up * pushForceL1);
