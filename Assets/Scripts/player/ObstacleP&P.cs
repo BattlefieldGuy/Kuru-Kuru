@@ -23,7 +23,6 @@ public class ObstaclePP : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("stay");
         if (other.gameObject.CompareTag("pushG"))
         {
             player.AddForce(other.transform.up * pushForceL1);

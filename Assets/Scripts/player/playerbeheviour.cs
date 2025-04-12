@@ -45,6 +45,19 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 m_Rigidbody.AddForce(new Vector2(0, -10));
             }
+            else if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                m_Rigidbody.drag = 0f;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                m_Rigidbody.drag = 0.5f;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                m_Rigidbody.drag = 1f;
+            }
+
         }
     }
 
